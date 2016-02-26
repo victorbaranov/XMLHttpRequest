@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        #btnGet{
+           
+            margin:30px ;
+            width:200px;
+            height:80px;
+            font-size:22px;
+        }
+    </style>
+
+
+    <script>
+        window.onload = function () {
+            document.getElementById("btnGet").onclick = function () {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "https://api.github.com/users", true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            document.getElementById("output").innerHTML += xhr.responseText;
+                        }
+                    }
+                }
+                xhr.send()
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <input id="btnGet" type="button" value="Get Info" />
+    <p id="output"></p>
+</body>
+</html>
