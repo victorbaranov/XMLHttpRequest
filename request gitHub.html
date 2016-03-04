@@ -16,22 +16,45 @@
 
 
     <script>
+        //запрос второй с попыткой сортировки
         window.onload = function () {
+            var xhr = new XMLHttpRequest();
             document.getElementById("btnGet").onclick = function () {
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "https://api.github.com/users", true);
-
+                xhr.open("GET", "https://api.github.com/users");
                 xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
-                        if (xhr.status == 200) {
-                            document.getElementById("output").innerHTML += xhr.responseText;
-                        }
+                    if (xhr.readyState == 4 && xhr.readyState == 200) {
+                        var data = JSON.parse(xhr.responseText);
+                        document.getElementById("output").innerHTML = "l:" + data.login + "ava: " + data.avatar_url + "<br/>";
                     }
                 }
-                xhr.send()
-
+                xhr.send();
             }
         }
+
+
+        // Запрос первый
+        //window.onload = function () {
+        //    document.getElementById("btnGet").onclick = function () {
+        //        var xhr = new XMLHttpRequest();
+        //        xhr.open("GET", "https://api.github.com/users", true);
+
+        //        xhr.onreadystatechange = function () {
+        //            if (xhr.readyState == 4) {
+        //                if (xhr.status == 200) {
+        //                    document.getElementById("output").innerHTML += xhr.responseText;
+        //                }
+        //            }
+        //        }
+        //        xhr.send()
+
+        //    }
+            
+        //}
+        //var prob = JSON.parse(xhr, function (key, value) {
+        //    if (key == "avatar_url") return new avatar_url(value);
+        //    return value;
+        //});
+        //document.write(prob.avatar_url);
 
     </script>
 </head>
