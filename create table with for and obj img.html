@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        td{
+            border: 0px solid red;
+            margin: 25px;
+            font-size:26px;
+            padding:5px;
+            background:aqua;
+            width:600px;
+            
+        }
+        td:hover{
+            background-color:turquoise ;
+        }
+
+        img{
+            width:auto;
+            height:60px;
+            padding:10px 50px 10px 10px;
+            
+        }
+        img:hover{
+            transform:scale(1.5);
+        }
+    </style>
+
+
+
+    <script>
+    
+        window.onload = function () {
+            var im = { a: "<img src='smile1.png' />" , b:"Baranov"};
+            
+            var e = [1,2,3,4,5];//prompt("enter number of lines ");
+            for (var i = 0; i < e.length; i++) {
+                var qwe = document.getElementById("div");
+                var trab = document.createElement("tr");
+                trab.innerHTML = "<td>" +im.a+im.b+ "</td>";
+
+                qwe.appendChild(trab);
+            }
+        }
+    
+    </script>
+   
+    
+    </head>
+<body>
+<table id="div">
+    <tr>
+        
+    </tr>
+    
+</table>
+    
+   
+</body>
+</html>
