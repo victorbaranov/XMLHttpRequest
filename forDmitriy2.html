@@ -4,40 +4,7 @@
     <title></title>
     <meta charset="utf-8" />
     <link href="div table for jsonParse.css" rel="stylesheet" />
-    <!--<style>
-        img {
-            position: relative;
-            background-color: aqua;
-            border: 1px solid grey;
-            width: 100px;
-            height: 100px;
-            float: left;
-            clear: left;
-            background-size: 80%;
-            padding: 10px;
-            margin: 10px;
-        }
-
-            img:hover {
-                transform: scale(1.5);
-            }
-
-        div {
-
-            background-color: lightgrey;
-            width: 800px;
-            height: 100px;
-            border: 1px solid grey;
-            font-size: 26px;
-
-        }
-
-            div:hover {
-                background-color:cornflowerblue;
-                transform:scale(1.1);
-            }
-    </style>-->
-
+    
 
     <script>
         window.onload = function requestUser() {
@@ -48,7 +15,7 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState != 4) return;
 
-                //  button.parentNode.removeChild(button);
+               
                 if (xhr.status != 200) {
                     alert(xhr.status + ':' + xhr.statusText);
                 } else {
@@ -61,28 +28,20 @@
                 }
             }
 
-            //  button.innerHTML = 'loading...';
-            //   button.disabled = true;
+           
         }
         function showLogin(login) {
             login.forEach(function (login) {
-                // var li = list.appendChild(document.createElement('div'));
-                // li.innerHTML = login.login;
-
+                
                 var avaImg = document.createElement("img");
                 avaImg.src = login.avatar_url;
                 div.appendChild(avaImg);
 
 
-                // дальше править
-
                 var logShow = document.createElement("div");
                 logShow.innerHTML = login.login;
                 log1.appendChild(logShow);
 
-
-                //шедевр вставки ссылки от JSON.pars
-                // pg.innerHTML = "<img src='" + login.avatar_url + "'/>";
 
             });
         }
