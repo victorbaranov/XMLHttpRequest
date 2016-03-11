@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        img{
+            width:50px;
+
+        }
+        td{
+            border:1px solid red;
+            background:aqua;
+        }
+        td:hover{
+            background-color:aquamarine;
+        }
+    </style>
+
+    <script>
+        window.onload = function requestUser() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://api.github.com/users", true);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState != 4) return;
+
+
+                if (xhr.status != 200) {
+                    alert(xhr.status + ':' + xhr.statusText);
+                } else {
+                    try {
+                        var login = JSON.parse(xhr.responseText);
+                    } catch (e) {
+                        alert("некоректный ответ" + e.message);
+                    }
+                    showLogin(login);
+                }
+            }
+
+
+        }
+        function showLogin(login) {
+            login.forEach(function (login) {
+                              
+              //  var creatTable = document.createElement("table");
+
+                
+               // qwe.appendChild(avaImg);
+               
+                var avaImg = document.createElement("img");
+                avaImg.src = login.avatar_url;
+
+                for (var i = 0; i < avaImg.length; i++) {
+                    
+                var creatTr = document.createElement('tr');
+               
+               
+                    creatTr.innerHTML = "<td>" + avaImg + "</td>" + "</tr>";
+                   
+                    qwe.appendChild(creatTr);
+                }
+            });
+        }
+    </script>
+
+</head>
+<body>
+    <table id="qwe"></table>
+
+    
+    
+</body>
+</html>
