@@ -2,20 +2,39 @@
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
+    
     <style>
-        img{
-            width:50px;
+        body{
+        background-color:antiquewhite;
+        padding:30px;
+        }
 
-        }
-        td{
-            border:1px solid red;
+
+     td {
+          
+            font-size:24px;
             background:aqua;
-        }
+            width:150px;
+            margin:auto;
+
+    }
+
         td:hover{
-            background-color:aquamarine;
+            background-color:deepskyblue;
         }
+        img{
+            width:70px;
+            padding:10px;
+        }
+
+        img:hover{
+            transform:scale(1.5);
+        }
+
     </style>
+   
+
 
     <script>
         window.onload = function requestUser() {
@@ -25,8 +44,6 @@
 
             xhr.onreadystatechange = function () {
                 if (xhr.readyState != 4) return;
-
-
                 if (xhr.status != 200) {
                     alert(xhr.status + ':' + xhr.statusText);
                 } else {
@@ -38,38 +55,43 @@
                     showLogin(login);
                 }
             }
-
-
         }
         function showLogin(login) {
             login.forEach(function (login) {
-                              
-              //  var creatTable = document.createElement("table");
 
-                
-               // qwe.appendChild(avaImg);
-               
-                var avaImg = document.createElement("img");
-                avaImg.src = login.avatar_url;
+                var table = document.createElement("table");
 
-                for (var i = 0; i < avaImg.length; i++) {
+                for (var i = 0; i < showLogin.length; i++) {
+
+                    var createTr = document.createElement("tr");
+
+                    var im = document.createElement("img");
+                    im.src = login.avatar_url;
+
+                    var createTd = document.createElement("td");
+                    createTd.innerText = login.login;
+
+                    var firstTd = document.createElement("td");
+                    firstTd.innerText = "";
+
+                    createTr.appendChild(firstTd);
+                    createTr.appendChild(createTd);
+                    firstTd.appendChild(im);
                     
-                var creatTr = document.createElement('tr');
-               
-               
-                    creatTr.innerHTML = "<td>" + avaImg + "</td>" + "</tr>";
-                   
-                    qwe.appendChild(creatTr);
                 }
+                    var tel = document.getElementsByTagName('body')[0];
+                    tel.appendChild(table);
+                    table.appendChild(createTr);
+                
             });
+            
         }
-    </script>
 
+
+
+    </script>
 </head>
 <body>
-    <table id="qwe"></table>
-
-    
-    
+   
 </body>
 </html>
