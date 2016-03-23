@@ -39,8 +39,8 @@ function showLogin(login) {
         var tel = document.getElementsByTagName('body')[0];
         tel.appendChild(table);
 
-        table.appendChild(Line);
-        Line.appendChild(avaCell);
-        Line.appendChild(loginCell);
+        table.appendChild(line);
+        line.appendChild(avaCell);
+        line.appendChild(loginCell);
     });
 }
