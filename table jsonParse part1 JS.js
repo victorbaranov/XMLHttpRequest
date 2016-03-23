@@ -23,24 +23,24 @@ function showLogin(login) {
     var table = document.createElement("table");
 
     login.forEach(function(login) {
-        var createLine = document.createElement("tr");
+        var Line = document.createElement("tr");
 
         var avatar = document.createElement("img");
         avatar.src = login.avatar_url;
 
-        var loginCreateColumn = document.createElement("td");
-        loginCreateColumn.innerText = login.login;
+        var loginCell = document.createElement("td");
+        loginCell.innerText = login.login;
 
 
-        var avaCreateColumn = document.createElement("td");
-        avaCreateColumn.innerText = "";
-        avaCreateColumn.appendChild(avatar);
+        var avaCell = document.createElement("td");
+        avaCell.innerText = "";
+        avaCell.appendChild(avatar);
 
         var tel = document.getElementsByTagName('body')[0];
         tel.appendChild(table);
 
-        table.appendChild(createLine);
-        createLine.appendChild(avaCreateColumn);
-        createLine.appendChild(loginCreateColumn);
+        table.appendChild(Line);
+        Line.appendChild(avaCell);
+        Line.appendChild(loginCell);
     });
 }
