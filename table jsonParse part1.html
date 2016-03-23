@@ -1,97 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <title></title>
     <meta charset="utf-8" />
-    
-    <style>
-        body{
-        background-color:antiquewhite;
-        padding:30px;
-        }
-
-
-     td {
-          
-            font-size:24px;
-            background:aqua;
-            width:150px;
-            margin:auto;
-
-    }
-
-        td:hover{
-            background-color:deepskyblue;
-        }
-        img{
-            width:70px;
-            padding:10px;
-        }
-
-        img:hover{
-            transform:scale(1.5);
-        }
-
-    </style>
-   
-
-
-    <script>
-        window.onload = function requestUser() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://api.github.com/users", true);
-            xhr.send();
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState != 4) return;
-                if (xhr.status != 200) {
-                    alert(xhr.status + ':' + xhr.statusText);
-                } else {
-                    try {
-                        var login = JSON.parse(xhr.responseText);
-                    } catch (e) {
-                        alert("некоректный ответ" + e.message);
-                    }
-                    showLogin(login);
-                }
-            }
-        }
-        function showLogin(login) {
-            login.forEach(function (login) {
-
-                var table = document.createElement("table");
-
-                for (var i = 0; i < showLogin.length; i++) {
-
-                    var createTr = document.createElement("tr");
-
-                    var im = document.createElement("img");
-                    im.src = login.avatar_url;
-
-                    var createTd = document.createElement("td");
-                    createTd.innerText = login.login;
-
-                    var firstTd = document.createElement("td");
-                    firstTd.innerText = "";
-
-                    createTr.appendChild(firstTd);
-                    createTr.appendChild(createTd);
-                    firstTd.appendChild(im);
-                    
-                }
-                    var tel = document.getElementsByTagName('body')[0];
-                    tel.appendChild(table);
-                    table.appendChild(createTr);
-                
-            });
-            
-        }
-
-
-
-    </script>
+    <link href="table jsonParse part1CSS.css" rel="stylesheet" />
+    <script src="table jsonParse part1 JS.js"></script>
 </head>
+
 <body>
-   
+
 </body>
+
 </html>

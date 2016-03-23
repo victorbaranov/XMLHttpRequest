@@ -1,0 +1,25 @@
+body {
+    background-color: antiquewhite;
+    padding: 30px;
+}
+ img {
+    width: 70px;
+    padding: 10px;
+}
+ img:hover {
+    transform: scale(1.5);
+}
+ table {
+    border-collapse: collapse;
+    width: 600px;
+}
+ th, td {
+    border-bottom: 1px solid #cecfd5;
+    padding: 10px 15px;
+}
+ tfoot tr: last-child td {
+    border-bottom: 0;
+}
+ tr:hover {
+    background-color: bisque;
+}
