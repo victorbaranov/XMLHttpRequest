@@ -23,7 +23,7 @@ function showLogin(login) {
     var table = document.createElement("table");
 
     login.forEach(function(login) {
-        var Line = document.createElement("tr");
+        var line = document.createElement("tr");
 
         var avatar = document.createElement("img");
         avatar.src = login.avatar_url;
